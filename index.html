@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    
+    <title>jQuery手机触屏Tab选项卡代码</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/title.ico"/>
+    <link href="css/css.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript">
+	var theme_list_open = false;
+	$(document).ready(function () {
+		function fixHeight() {
+			var headerHeight = $("#switcher").height();
+			$("#iframe").attr("height", $(window).height()-84 + "px");
+		}
+		$(window).resize(function () {
+			fixHeight();
+		}).resize();
+		//响应式预览
+		$('.device-monitor').addClass('active');
+		$(".device-mobile-3").click(function () {
+			$("#by").css("overflow-y", "auto");
+			$('#iframe-wrap').removeClass().addClass('mobile-width-3');
+			$('.device-tablet,.device-mobile-1,.device-monitor,.device-mobile-2,.device-mobile-3').removeClass('active');
+			$(this).addClass('active');
+			return false;
+		});
+	
+		$(".device-mobile-2").click(function () {
+			$("#by").css("overflow-y", "auto");
+			$('#iframe-wrap').removeClass().addClass('mobile-width-2');
+			$('.device-tablet,.device-mobile-1,.device-monitor,.device-mobile-2,.device-mobile-3').removeClass('active');
+			$(this).addClass('active');
+			return false;
+		});
+	
+		$(".device-mobile-1").click(function () {
+			$("#by").css("overflow-y", "auto");
+			$('#iframe-wrap').removeClass().addClass('mobile-width-1');
+			$('.device-tablet,.device-mobile,.device-monitor,.device-mobile-2,.device-mobile-3').removeClass('active');
+			$(this).addClass('active');
+			return false;
+		});
+	
+		$(".device-tablet").click(function () {
+			$("#by").css("overflow-y", "auto");
+			$('#iframe-wrap').removeClass().addClass('tablet-width');
+			$('.device-tablet,.device-mobile-1,.device-monitor,.device-mobile-2,.device-mobile-3').removeClass('active');
+			$(this).addClass('active');
+			return false;
+		});
+	
+		$(".device-monitor").click(function () {
+			$("#by").css("overflow-y", "hidden");
+			$('#iframe-wrap').removeClass().addClass('full-width');
+			$('.device-tablet,.device-mobile-1,.device-monitor,.device-mobile-2,.device-mobile-3').removeClass('active');
+			$(this).addClass('active');
+			return false;
+		});
+	});
+	</script>
+<body id="by" style="overflow-y: hidden" >
+	<div id="switcher">
+	    <ul>
+	    	<li class="inline">在线预览</li>
+	      <div id="Device">
+	        <li class="device-monitor icon-monitor"></li>
+	        <li class="device-tablet icon-tablet"></li>
+	        <li class="device-mobile-1 icon-mobile-1"></li>
+	        <li class="device-mobile-2 icon-mobile-2"></li>
+	        <li class="device-mobile-3 icon-mobile-3"></li>
+	      </div>
+	    </ul>
+	</div>
+	<div id="iframe-wrap">
+		 <!--src  里面是随便 一处html页面即可  具体效果图 请用下面链接地址显示-->
+		 <!-- src = "http://demo.sc.chinaz.com/Files/DownLoad/webjs1/201703/jiaoben4905"/-->
+		<iframe id="iframe" src="https://lq-work.github.io/touchSlider" frameborder="0"   width="100%"> </iframe>
+	</div>
+</div>
+</body>
+</html>
